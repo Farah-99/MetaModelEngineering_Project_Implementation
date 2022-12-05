@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PRO:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:PRO=" platform:/resource/Project/metamodels/PRO.ecore" id_proj="proj1" name_proj="SiteWeb" duration_proj="10">
+  <partners id_par="part1" name_par="farah" country_par="tunisia"/>
+  <partners id_par="part2" name_par="wissal" country_par="france"/>
+  <partners id_par="part3" name_par="hadil" country_par="tunisia"/>
+  <rules title_rule="Rule_time" type_rule="Time" leader="part1">
+    <tasks id_task="task1" title_task="Etude" start_task="5" partners="part1 part2 part3"/>
+    <delievrables title_del="1" due_del="5" nature_del="Time" partner="part1"/>
+  </rules>
+  <rules title_rule="Rule_Software" type_rule="Software" leader="part2">
+    <tasks id_task="task2" title_task="Conception" start_task="7" end_task="5" partners="part1 part2"/>
+    <delievrables title_del="2" due_del="7" nature_del="Software" partner="part2"/>
+  </rules>
+</PRO:Project>

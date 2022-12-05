@@ -1,0 +1,83 @@
+-- @path Project=/Project/metamodels/PRO.ecore
+
+module AddAccessor1;
+create cible : PRO from source : PRO;
+
+
+
+rule duplicateProject {
+from
+	sourceProject : PRO!Project
+to
+	cibleProject : PRO!Project (
+		partners <- sourceProject.partners,
+		rules <- sourceProject.rules,
+		id_proj <- sourceProject.id_proj,
+		name_proj <- sourceProject.name_proj,
+		duration_proj <- sourceProject.duration_proj
+	)
+	do { ('\t** Projects: \nThe class '+ sourceProject.name_proj + ' is being duplicated !!! \n ====> Done !').println();}
+}
+
+rule duplicatePartner {
+from
+	sourcePartner : PRO!Partner
+to
+	ciblePartner : PRO!Partner (
+		id_par <- sourcePartner.id_par,
+		name_par <- sourcePartner.name_par,
+		country_par <- sourcePartner.country_par
+	)
+	do { ('\t** Partners: \nThe class '+ sourcePartner.name_par + ' is being duplicated !!! \n ====> Done !').println();}
+	
+}
+
+rule duplicateRule  {
+from
+	sourceRule : PRO!Rule
+to
+	cibleRule : PRO!Rule (
+		tasks <- sourceRule.tasks,
+		delievrables <- sourceRule.delievrables,
+		leader <- sourceRule.leader,
+		title_rule <- sourceRule.title_rule,
+		type_rule <- sourceRule.type_rule
+	)
+	do { ('\t** Rules: \nThe class '+ sourceRule.title_rule + ' is being duplicated !!! \n ====> Done !').println();}
+}
+
+
+rule duplicateTask {
+from
+	sourceTask : PRO!Task
+to
+	cibleTask : PRO!Task (
+		id_task <- sourceTask.id_task,
+		title_task <- sourceTask.title_task,
+		start_task <- sourceTask.start_task,
+		end_task <- sourceTask.end_task,
+		partners <- sourceTask.partners
+	)
+	do { ('\t** Tasks: \nThe class '+ sourceTask.title_task + ' is being duplicated !!! \n ====> Done !').println();}
+}
+
+rule duplicateDeliverable {
+from
+	sourceDeliverable : PRO!Deliverable
+to
+	cibleDeliverable : PRO!Deliverable (
+		title_del <- sourceDeliverable.title_del,
+		due_del <- sourceDeliverable.due_del,
+		nature_del <- sourceDeliverable.nature_del,
+		partner <- sourceDeliverable.partner
+	)
+	do { ('\t** Delievrables: \nThe class '+ sourceDeliverable.title_del + ' is being duplicated !!! \n ====> Done !').println();}
+}
+
+
+
+
+
+
+
+
